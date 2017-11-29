@@ -1,0 +1,6 @@
+#include <stdio.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <stdlib.h>
+#define n	100
+int main(void){if(n<0) return 1;int fd;char tmp[128];snprintf((char*)&tmp,sizeof(tmp),"Sully_%d.c",n);if((fd=open((char*)&tmp,O_TRUNC|O_CREAT|O_WRONLY,0644))<0) return 1;char q='"';char bs='\\';char nl='\n';char p='%';char *s="#include <stdio.h>%c#include <fcntl.h>%c#include <unistd.h>%c#include <stdlib.h>%c#define n	%d%cint main(void){if(n<0) return 1;int fd;char tmp[128];snprintf((char*)&tmp,sizeof(tmp),%cSully_%cd.c%c,n);if((fd=open((char*)&tmp,O_TRUNC|O_CREAT|O_WRONLY,0644))<0) return 1;char q='%c';char bs='%c%c';char nl='%cn';char p='%c';char *s=%c%s%c;dprintf(fd,s,nl,nl,nl,nl,n-1,nl,q,p,q,q,bs,bs,bs,p,q,s,q,q,p,p,p,q);close(fd);snprintf((char*)&tmp,sizeof(tmp),%cclang Sully_%cd.c -o Sully_%cd; ./Sully_%cd%c,n,n,n);system((char*)&tmp);return 0;}";dprintf(fd,s,nl,nl,nl,nl,n-1,nl,q,p,q,q,bs,bs,bs,p,q,s,q,q,p,p,p,q);close(fd);snprintf((char*)&tmp,sizeof(tmp),"clang Sully_%d.c -o Sully_%d; ./Sully_%d",n,n,n);system((char*)&tmp);return 0;}
