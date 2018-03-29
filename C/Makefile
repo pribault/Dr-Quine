@@ -1,3 +1,4 @@
+MAKE_DIR = .Makefiles
 COLLEEN = Colleen
 GRACE = Grace
 SULLY = Sully
@@ -8,30 +9,30 @@ EXT = Makefile
 all: $(COLLEEN) $(GRACE) $(SULLY)
 
 $(COLLEEN):
-	@make -f $(COLLEEN).$(EXT) $(COLLEEN)
+	@make -f $(MAKE_DIR)/$(COLLEEN).$(EXT)
 
 $(GRACE):
-	@make -f $(GRACE).$(EXT) $(GRACE)
+	@make -f $(MAKE_DIR)/$(GRACE).$(EXT)
 
 $(SULLY):
-	@make -f $(SULLY).$(EXT) $(SULLY)
+	@make -f $(MAKE_DIR)/$(SULLY).$(EXT)
 
 clean:
-	@make -f $(COLLEEN).$(EXT) clean
-	@make -f $(GRACE).$(EXT) clean
-	@make -f $(SULLY).$(EXT) clean
+	@make -f $(MAKE_DIR)/$(COLLEEN).$(EXT) clean
+	@make -f $(MAKE_DIR)/$(GRACE).$(EXT) clean
+	@make -f $(MAKE_DIR)/$(SULLY).$(EXT) clean
 
 fclean:
-	@make -f $(COLLEEN).$(EXT) fclean
-	@make -f $(GRACE).$(EXT) fclean
-	@make -f $(SULLY).$(EXT) fclean
+	@make -f $(MAKE_DIR)/$(COLLEEN).$(EXT) fclean
+	@make -f $(MAKE_DIR)/$(GRACE).$(EXT) fclean
+	@make -f $(MAKE_DIR)/$(SULLY).$(EXT) fclean
 
 norme:
-	@make -f $(COLLEEN).$(EXT) norme
-	@make -f $(GRACE).$(EXT) norme
-	@make -f $(SULLY).$(EXT) norme
+	@make -f $(MAKE_DIR)/$(COLLEEN).$(EXT) norme
+	@make -f $(MAKE_DIR)/$(GRACE).$(EXT) norme
+	@make -f $(MAKE_DIR)/$(SULLY).$(EXT) norme
 
 re:
-	@make -f $(COLLEEN).$(EXT) re
-	@make -f $(GRACE).$(EXT) re
-	@make -f $(SULLY).$(EXT) re
+	@make -f $(MAKE_DIR)/$(COLLEEN).$(EXT) re
+	@make -f $(MAKE_DIR)/$(GRACE).$(EXT) re
+	@make -f $(MAKE_DIR)/$(SULLY).$(EXT) re

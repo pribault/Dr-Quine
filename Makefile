@@ -1,8 +1,0 @@
-C_DIR = C
-ASM_DIR = ASM
-
-.PHONY:
-
-.SILENT:
-
-all:
