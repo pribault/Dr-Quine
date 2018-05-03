@@ -5,7 +5,8 @@ FLAGS =
 SRC =	src/colleen.s
 OBJ = $(SRC:%.s=%.o)
 COMPILED = false
-FORMAT = elf64
+FORMAT = macho64
+ARCH = $(shell uname -m)
 
 .PHONY: all clean fclean re export
 
@@ -19,7 +20,7 @@ all: $(NAME)
 	@$(ASM) $(FLAGS) -f $(FORMAT) -o $@ $<
 
 $(NAME): $(OBJ)
-	@$(LD) -o $(NAME) $(OBJ)
+	@$(LD) -o $(NAME) -lSystem -arch $(ARCH) $(OBJ)
 	@$(eval COMPILED=true)
 
 clean:

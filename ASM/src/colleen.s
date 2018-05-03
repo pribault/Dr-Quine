@@ -1,5 +1,7 @@
-section	text
+section	.text
 
-global	_start
+global	_main
 
-_start:
+_main:
+
+	ret

@@ -5,7 +5,8 @@ FLAGS =
 SRC =	src/sully.s
 OBJ = $(SRC:%.s=%.o)
 COMPILED = false
-FORMAT = elf64
+FORMAT = macho64
+ARCH = $(shell uname -m)
 
 .PHONY: all clean fclean re export
 
@@ -16,10 +17,10 @@ all: $(NAME)
 
 %.o: %.s
 	@echo "\033[38;5;125mcompiling $@\033[0m"
-	@$(ASM) -f $(FORMAT) $(FLAGS) -o $@ $<
+	@$(ASM) $(FLAGS) -f $(FORMAT) -o $@ $<
 
 $(NAME): $(OBJ)
-	@$(LD) -o $(NAME) $(OBJ)
+	@$(LD) -o $(NAME) -lSystem -arch $(ARCH) $(OBJ)
 	@$(eval COMPILED=true)
 
 clean:
