@@ -8,7 +8,7 @@ all: $(C_DIR) $(ASM_DIR)
 $(C_DIR):
 	@make -C $(C_DIR)
 
-$(GRACE):
+$(ASM_DIR):
 	@make -C $(ASM_DIR)
 
 clean:

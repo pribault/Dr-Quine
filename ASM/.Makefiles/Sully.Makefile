@@ -13,10 +13,10 @@ ARCH = $(shell uname -m)
 .SILENT:
 
 all: $(NAME)
-	@if [ $(COMPILED) = true ]; then echo "\033[38;5;207m$(NAME) done\033[0m"; else echo "\033[38;5;207mnothing to be done for $(NAME)\033[0m";fi
+	@if [ $(COMPILED) = true ]; then echo "\033[38;5;125m$(NAME) done\033[0m"; else echo "\033[38;5;125mnothing to be done for $(NAME)\033[0m";fi
 
 %.o: %.s
-	@echo "\033[38;5;125mcompiling $@\033[0m"
+	@echo "\033[38;5;207mcompiling $@\033[0m"
 	@$(ASM) $(FLAGS) -f $(FORMAT) -o $@ $<
 
 $(NAME): $(OBJ)
