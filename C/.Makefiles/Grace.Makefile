@@ -24,6 +24,7 @@ clean:
 
 fclean: clean
 	@rm -f $(NAME)
+	@rm -f $(NAME)_kid.c
 
 norme:
 	@norminette $(SRC:%.o=%.c)
